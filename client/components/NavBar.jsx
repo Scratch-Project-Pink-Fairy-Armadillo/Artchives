@@ -6,7 +6,8 @@ import SignUp from './SignUp';
 export default function NavBar() {
   return(
     <nav>
-      <Login />
+      <button type='submit' onClick={() => console.log('route to favorites page')}>Favorites</button>
+      {/* <Login /> */}
       <SignUp />
     </nav>
   )
