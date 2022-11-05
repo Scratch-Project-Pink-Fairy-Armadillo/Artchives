@@ -29,6 +29,11 @@ export default function Login() {
     <input {...register("password")} placeholder="password" /><br />
     <input type="submit" value="Login" />
     <p>{data}</p>
+    <p id='nomatch'></p>
+    <p>link to signup page</p>
+    </form>
+  )
+}
 
     <p id='nomatch'></p>
     <p>link to signup page</p>
