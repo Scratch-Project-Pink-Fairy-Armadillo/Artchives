@@ -7,16 +7,16 @@
 const favoritesModel = require('./favoritesModel')
 //**TODO: create favorites object 
 const favorites = {
-   //**TODO: Create a method to store the data when the user favorits something 
+   //**TODO: Create a method to store the data when the user favorite something 
    createFavorite(res, req, next){
 
   },
-  //**TODO: Create a method when the user updates the favorits? 
-  //? Frontend may need to impelment an eventhandler to handle this event
+  //**TODO: Create a method when the user updates the favorite? 
+  //? Frontend may need to implement an event handler to handle this event
   updateFavorites(res, req, next){ 
 
   },
-  //**TODO: Create a mehtod when the user wants the find a certin favorite
+  //**TODO: Create a method when the user wants the find a certain favorite
   findFavorites(res, req, next){
 
   },

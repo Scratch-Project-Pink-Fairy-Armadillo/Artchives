@@ -32,20 +32,20 @@ app.use((req, res) => res.status(404).send('This is not the page you\'re looking
 app.get('/', (req, res) => {});
 
 //**TODO: GET -users 
-  //! Frontend must impelment a GET request to the backend 
+  //! Frontend must implement a GET request to the backend 
 
 //**TODO: GET -individual users? 
-  //! Frontend must impelment a GET request to the backend 
+  //! Frontend must implement a GET request to the backend 
 
 //**TODO: POST -user signs up, store info into DB 
-  //! Frontend must impelment a POST request to the backend
+  //! Frontend must implement a POST request to the backend
 
   
   //**TODO: PUT -user can update favorites 
-  //! Frontend must impelment a POST request to the backend
+  //! Frontend must implement a POST request to the backend
 
   //**TODO: DELETE -user can delete favorites 
-  //! Frontend must impelment a POST request to the backend//! Frontend must 
+  //! Frontend must implement a POST request to the backend//! Frontend must 
   
   
   
@@ -59,5 +59,5 @@ app.get('/', (req, res) => {});
   /*
   ****** Stretch feature 
   **TODO: PUT -user can update info 
-    ! Frontend must impelment a POST request to the backend
+    ! Frontend must implement a POST request to the backend
   */
