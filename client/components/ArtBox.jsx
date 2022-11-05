@@ -15,8 +15,6 @@ export default function ArtBox(props) {
         .then((data) => {
         const imgUrl = data.config.iiif_url + '/' + data.data.image_id + '/full/843,/0/default.jpg';
         setArtTitle(data.data.title);
-
-
       });
     }, []);
 
