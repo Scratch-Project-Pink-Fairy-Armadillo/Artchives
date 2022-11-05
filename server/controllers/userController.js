@@ -6,13 +6,18 @@
  */
 
 //**TODO:aquire user model 
-
-//**TODO: create user object/document 
-
+const userModel = { 
+  //**TODO: create user object/document 
   //**TODO: create a method to get ALL users 
+  //**TODO: Create a method to verify user 
+  //**TODO: Create a method of createa user 
+        //? using bcrypt
+        //? impelment hashing of passwords 
+        //? Do token authentication? 
+    
+}
 
-    //**TODO: Create a method of createa user 
 
-      //**TODO: Create a method to verify user 
 
   //**TODO: export controller 
+
