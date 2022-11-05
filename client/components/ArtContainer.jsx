@@ -9,9 +9,7 @@ export default function ArtContainer() {
     };
 
     return(
-      <div className='art-container'>
-        
-      </div>
+      <div className='art-container'>{boxes}</div>
     )
   }
   
