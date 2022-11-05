@@ -8,7 +8,7 @@ export default function About() {
 
   return(
     <article>
-
+      <p>About section</p>
     </article>
   )
 }
