@@ -4,14 +4,18 @@
  * favorites depending on the user
  */
 
-const mongoose = require('mfavoritedbse');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 //favorites schema for each favorite FIGURE OUT WHAT WE NEED TO SAVE FROM THESE OBJECTS FETCHED FROM API
 const favoritesSchema = new Schema({
-    datatype1: {type: String, required: true},
-    datatype2: {type: String, required: true}
+    id: {type: Number, required: true},
+    title: {type: String, required: true},
+    date_display: {type: String, required: true},
+    artwork_type_title: { type: String, required: true},
+    department_title: {type: String, required: true},
+    department_id: {type: String, required: true},
+    image_id: {type: String, required: true}
   });
 
 
