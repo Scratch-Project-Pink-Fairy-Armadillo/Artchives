@@ -30,8 +30,8 @@ export default function Login() {
     <input type="submit" value="Login" />
     <p>{data}</p>
 
+
     <p id='nomatch'></p>
     <p>link to signup page</p>
     </form>
   )
-}

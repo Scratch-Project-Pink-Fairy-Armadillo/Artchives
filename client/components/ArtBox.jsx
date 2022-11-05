@@ -1,21 +1,28 @@
-import React, { useEffect } from 'react';
+import React, { useEffect , useState } from 'react';
+import ArtContainer from './ArtContainer';
 
 
-export default function ArtBox() {
 
-    const url = `https://api.artic.edu/api/v1/artworks/${this.props.artId}?fields=id,title,image_id`
+export default function ArtBox(props) {
+    const [artTitle , setArtTitle] = useState(null);
+    const apiUrl = `https://api.artic.edu/api/v1/artworks/${props.artId}?fields=id,title,image_id`
+
+
 
     useEffect(() => {
-        fetch('https://api.artic.edu/api/v1/artworks/229889?fields=id,feather-headdress,91b70d5e-519f-484b-d9e5-4a07f6fd171b/full/843/0/default.jpg')
+        fetch(apiUrl)
         .then((data) => data.json())
         .then((data) => {
-         
+        const imgUrl = data.config.iiif_url + '/' + data.data.image_id + '/full/843,/0/default.jpg';
+        setArtTitle(data.data.title);
       });
-    })
+    }, []);
 
     return(
-        <div className='artbox-div'>
-
+        <div id={props.artID} className='artbox-div'>
+            <img id={props.artID + '-image'}src={imgUrl} alt="artwork" />
+            <p>{artTitle}</p>
+            <button id={props.artID + '-button'} className='favorite-button'>Favorite</button>
         </div>
     )
 }

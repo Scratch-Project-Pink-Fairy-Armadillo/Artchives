@@ -1,7 +1,7 @@
 import React from 'react';
 import ArtBox from './ArtBox';
 
-export default function ArContainer() {
+export default function ArtContainer() {
     const idArray = ['229889', '239462', '155959', '140595', '146941']
     const boxes = [];
     for (let i = 0; i < 5; i++){
@@ -9,9 +9,7 @@ export default function ArContainer() {
     };
 
     return(
-      <div className='art-container'>
-        
-      </div>
+      <div className='art-container'>{boxes}</div>
     )
   }
   

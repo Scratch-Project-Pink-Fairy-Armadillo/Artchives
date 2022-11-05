@@ -4,13 +4,12 @@ import About from './About';
 import ArtContainer from './ArtContainer';
 
 
-
 const App = () => {
   return (
     <div>
         <NavBar /> 
-        <About /> 
         <ArtContainer />
+        <About /> 
     </div>
   )
 }
