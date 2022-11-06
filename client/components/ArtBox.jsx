@@ -5,6 +5,7 @@ import ArtContainer from './ArtContainer';
 
 export default function ArtBox(props) {
     console.log(props)
+    console.log('here');
     const [isFavorite , setFavorite] = useState(false);
 
 
@@ -26,6 +27,7 @@ export default function ArtBox(props) {
         <div id={props.artID} className='artbox-div'>
             <img id={props.artID + '-image'} src={props.imgUrl} alt="artwork" />
             <p>{props.title}</p>
+            <p>here</p>
             <button id={props.artID + '-button'} className='favorite-button'>Favorite</button>
         </div>
     )

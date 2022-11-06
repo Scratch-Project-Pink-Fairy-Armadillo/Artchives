@@ -6,8 +6,11 @@ export default function ArtContainer() {
 
     const [count, setCount] = useState(0);
     const [results, setResults] = useState([]);
+    console.log('lin 9')
+    console.log(results);
 
     useEffect(() => {
+      console.log('line11');
       const idArray = ['229889', '239462', '155959', '140595', '146941']
       if (count<5){
         const newCount = count + 1 
@@ -34,7 +37,11 @@ export default function ArtContainer() {
     }
 
     return (
-      <div className='art-container'> {results} </div>
+      <div className='art-container'> 
+      {results.map((box) => {
+        <h1>{box}</h1>
+      })}
+      </div>
     )
 
   }
