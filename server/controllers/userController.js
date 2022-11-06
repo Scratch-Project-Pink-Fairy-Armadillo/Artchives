@@ -1,7 +1,7 @@
 /**
  * READ: 
  * This file will contain all of the information regarding create, reading
- * updating, and delete users but will also include logic to authenicate the
+ * updating, and delete users but will also include logic to authenticate the
  * user 
  */
 

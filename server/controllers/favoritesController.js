@@ -11,7 +11,7 @@ const favorites = {
   //route /favorites */
   getFavorites(res, req, next) {
     cont [id, title, data_display, artwork_type_title, department_title, department_id,image_id ] = req.body;
-    
+
   },
 
 
