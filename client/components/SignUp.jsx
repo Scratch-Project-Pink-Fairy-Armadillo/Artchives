@@ -82,9 +82,3 @@ export default function SignUp() {
     </form>
   )
 }
-
-    <p id='nomatch'></p>
-    <p>link to signup page</p>
-    </form>
-  )
-}
