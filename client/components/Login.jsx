@@ -35,3 +35,4 @@ export default function Login() {
     <p>link to signup page</p>
     </form>
   )
+}

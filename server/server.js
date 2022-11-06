@@ -49,6 +49,12 @@ app.get('/', (req, res) => {
 //**TODO: POST -user signs up, store info into DB 
   //! Frontend must implement a POST request to the backend
 
+app.get('/signup', (req,res) => {
+  return res.sendStatus(200).json('This is the sign up page')
+});
+app.post('/signup', (req,res) => {
+  return res.sendStatus(200).json(res.locals.users);
+})
   
   //**TODO: PUT -user can update favorites 
   //! Frontend must implement a POST request to the backend
