@@ -4,27 +4,25 @@ import ArtContainer from './ArtContainer';
 
 
 export default function ArtBox(props) {
-    const [artTitle , setArtTitle] = useState(null);
-    const apiUrl = `https://api.artic.edu/api/v1/artworks/${props.artId}?fields=id,title,image_id`
+    console.log(props)
+    console.log('here');
+    const [isFavorite , setFavorite] = useState(false);
 
 
 
-    useEffect(() => {
-        fetch(apiUrl)
-        .then((data) => data.json())
-        .then((data) => {
-        const imgUrl = data.config.iiif_url + '/' + data.data.image_id + '/full/843,/0/default.jpg';
-        setArtTitle(data.data.title);
-      });
-    }, []);
+    // useEffect(() => {
+    //     console.log(props)
+    //     setFavorite(props);
+    // }, []);
+
+
 
     return(
         <div id={props.artID} className='artbox-div'>
-            <img id={props.artID + '-image'}src={imgUrl} alt="artwork" />
-            <p>{artTitle}</p>
-            <button id={props.artID + '-button'} className='favorite-button'>Favorite</button>
+
+            <img id={props.artID + '-image'} src={props.imgUrl} alt="artwork" />
+            <p>{props.title}</p>
+            <button id={props.artID + '-button'} className='favorite-button' onClick={() => console.log('favorited!')}>Favorite</button>
         </div>
     )
 }
-
-

@@ -4,7 +4,7 @@
  * updating, and delete favorites 
  */
 //**TODO: aquire favorites model 
-const favoritesModel = require('./favoritesModel')
+const favoritesModel = require('./favoritesModel');
 //**TODO: create favorites object 
 const favorites = {
   //**TODO: Create a method to get all the favorites data when the user goes to
@@ -50,4 +50,4 @@ const favorites = {
 };
  
   //**TODO: export controller 
-  modules.exports = favoritesModel; 
+  module.exports = favoritesModel; 

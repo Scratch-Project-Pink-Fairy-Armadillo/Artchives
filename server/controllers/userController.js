@@ -27,17 +27,40 @@ userController.getUser = (req,rest,next) => {
     //? Do token authentication? 
 }
 
-  //**TODO: Create a method of create a user 
 
+  //**TODO: Create a method to get ALL users 
+  userController.getAllUsers = (req, res, next) => {
+    User.find({}, (err, users) => {
+      if (err) {
+        return next('Error in userController.getAllUsers' + JSON.stringifyy(err));
+      }
+      res.locals.users = users; 
+      next();
+    });
+  }
+
+  
+  //**TODO: Create a method of create a user 
   userController.createUser = (req, res, next) => {
     // const requiredProps = ['username', 'password']; //done for us in frontend
     // if (!requiredProps.every((prop) => prop in req.body)) return next({error: 'first error handler'});
     const {username, password} = req.body;
+
+    //Hashing password with a salt factor of 10 
+    const hashedPassword = bcrypt.hash(password, 10);
+
   //create a newUser using userModel mongos database
-    User.create({username, password}, (err, newUser) => {
+    User.create({username, password}, (err, newUserData) => {
       if (err) return next('Error in userController.createUser'  + JSON.stringify(err));
+        
+      // const newUserData = {
+      //   userController: res.locals.username, 
+      //   password: res.locals.password, 
+      //   favs: []
+      // }
       //redirect to secret
-      res.locals.newUser = newUser;
+      res.locals.newUserData = newUserData;
+
       // console.log(newUser);
       return next();
     });

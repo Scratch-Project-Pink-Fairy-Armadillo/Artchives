@@ -6,6 +6,8 @@ module.exports = {
 
     output: {
         path: path.join(__dirname, '/dist'),
+        //added by aimee
+        publicPath: '/',
         filename: 'bundle.js'
     },
     // devtool: 'eval-source-map',
@@ -21,6 +23,8 @@ module.exports = {
       static: {
         // match the output path
         directory: path.resolve(__dirname, '/dist'),
+        //added by aimee
+        publicPath: '/',
       },
       headers: { 'Access-Control-Allow-Origin': '*' },
     /**
@@ -34,10 +38,11 @@ module.exports = {
         target: 'http://localhost:3000/',
         secure: false,
       },
-      '/assets/**': {
-        target: 'http://localhost:3000/',
-        secure: false,
-      },
+      //tookout by aimee
+      // '/assets/**': {
+      //   target: 'http://localhost:3000/',
+      //   secure: false,
+      // },
     },
   },
 
