@@ -9,22 +9,17 @@ export default function ArtBox(props) {
     const [isFavorite , setFavorite] = useState(false);
 
 
-/*
-    useEffect(() => {
-        console.log('here')
-        fetch(apiUrl)
-        .then((data) => data.json())
-        .then((data) => {
-        setArtTitle(data.data.title);
-        setimgUrl(data.config.iiif_url + '/' + data.data.image_id + '/full/843,/0/default.jpg')
-        console.log(imgUrl);
-      });
-    }, []);
 
-*/
+    // useEffect(() => {
+    //     console.log(props)
+    //     setFavorite(props);
+    // }, []);
+
+
 
     return(
         <div id={props.artID} className='artbox-div'>
+
             <img id={props.artID + '-image'} src={props.imgUrl} alt="artwork" />
             <p>{props.title}</p>
             <button id={props.artID + '-button'} className='favorite-button' onClick={() => console.log('favorited!')}>Favorite</button>

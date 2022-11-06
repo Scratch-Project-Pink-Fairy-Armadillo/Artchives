@@ -15,20 +15,28 @@ const sessionController = require('./controllers/sessionController');
 //this is where the backend server will run 
 const PORT = 3000; 
 const app = express();
-
-
-//URI? 
-// const mongoURI = process.env.NODE_ENV === 'test' ? 'mongodb://localhost/scratchproject' : 'mongodb://localhost/scratchproject';
-// mongoose.connect(mongoURI);
-
-//Set up for routing pages 
-const archiveRouter = express.Router();  
-app.use('/archive', archiveRouter); 
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// cedar added this for static assets 
+app.use('/assets', express.static(path.join(__dirname, '../assets')))
+
+//URI? 
+const URI = 'mongodb+srv://PFA:pfa@cluster0.eptbr6d.mongodb.net/?retryWrites=true&w=majority';
+// const mongoURI = process.env.NODE_ENV === 'test' ? 'mongodb://localhost/scratchproject' : 'mongodb://localhost/scratchproject';
+// mongoose.connect(mongoURI);
+// // cedar added the below
+mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connection.once('open', () => {
+  console.log('Connected to Database');
+});
+
+//Set up for routing pages 
+// const archiveRouter = express.Router();  
+// app.use('/archive', archiveRouter); 
+
+
 //do we have to use express static to link client folder? 
-app.use('/client', express.static(path.resolve(__dirname, '../client')));
+//app.use('/client', express.static(path.resolve(__dirname, '../client')));
 
 
 //route CRUD methods 
@@ -40,21 +48,25 @@ app.get('/', (req, res) => {
   return res.sendStatus(200).json('This is from the GET response for the root path')
 });
 
-//**TODO: GET -users 
-  //! Frontend must implement a GET request to the backend 
-
-//**TODO: GET -individual users? 
-  //! Frontend must implement a GET request to the backend 
-
-//**TODO: POST -user signs up, store info into DB 
-  //! Frontend must implement a POST request to the backend
-
 app.get('/signup', (req,res) => {
   return res.sendStatus(200).json('This is the sign up page')
 });
-app.post('/signup', (req,res) => {
-  return res.sendStatus(200).json(res.locals.users);
-})
+//**TODO: GET -users 
+  //! Frontend must implement a GET request to the backend 
+app.get('/user', userController.getAllUsers, (req,res) => {
+  return res.sendStatus(200).json(res.locals.user);
+});
+//**TODO: GET -individual users? 
+  //! Frontend must implement a GET request to the backend 
+
+  
+  //! Frontend must implement a POST request to the backend
+  
+  //**TODO: POST -user signs up, store info into DB 
+  app.post('/signup',userController.createUser, (req,res) => {
+    return res.sendStatus(200).json(res.locals.newUserData);
+  })
+  
   
   //**TODO: PUT -user can update favorites 
   //! Frontend must implement a POST request to the backend
@@ -81,7 +93,7 @@ app.post('/signup', (req,res) => {
   });
   
   //http://localhost:3000/
-  module.exports = app;
+  //module.exports = app;
   /*
   ****** Stretch feature 
   **TODO: PUT -user can update info 

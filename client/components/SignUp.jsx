@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import {useCookies} from 'react-cookies';
+import {useCookies} from 'react-cookie';
 import { useNavigate } from 'react-router';
 import FavBox from '../components/FavBox.jsx';
 
@@ -7,8 +7,9 @@ import FavBox from '../components/FavBox.jsx';
 export default function SignUp() {
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
+  const [cookies, setCookies] = useCookies(null);
     
-//
+  //
   const handleChange = (e) => {
     console.log('handleChange is working');
     setUsername(e.target.value);
@@ -19,23 +20,29 @@ export default function SignUp() {
     setPassword(e.target.value);
     };
 
-    function onSubmit() {
+    function onSubmit(e) {
+      console.log('onSubmit is working')
       e.preventDefault();
     // we make a post request to our server
     //   const { username, password } = req.body;
-      fetch('/http://localhost:3000/signup', {
+      fetch(`http://localhost:3000/${signup}?signup:login`, {
         method: 'POST'
       }, {username, password})
+      .then(res => res.json())
       .then(user => {
     // we need to check if there is already a user with the same name
     // if so we need to say you need to login
         if (user) return alert('User already exists, please login.');
+        console.log(`New user info is posting: username ${username} and password: ${password}`);
     // otherwise we create user
-      // const User = {
-      //   username,
-      //   password,
-      //   favs: []
-      // }
+      const User = {
+        username,
+        password,
+        favs: []
+      }
+      setCookies("username", res.newUserData.username);
+      setCookies("password", res.newUserData.password);
+      
       const accountCreatedIsSuccess = res.status === 200;
       console.log(accountCreatedIsSuccess);
       if (accountCreatedIsSuccess && isLogin) {
@@ -86,10 +93,10 @@ const isLogin = false;
   return (
     <form onSubmit={onSubmit} id='signup-form'>
     <label>Username: </label>
-    <input type="text" required name="username" onChange={(e) => setUsername(e.target.value)}/><br />
+    <input type="text" required name="username" onChange={(e) => setUsername(e.target.value)}/>
     <label>Password: </label>
-    <input type="password" required name="password"onChange={(e) => setPassword(e.target.value)}/><br />
-    <input type="submit" value="Sign Up" />
+    <input type="password" required name="password"onChange={(e) => setPassword(e.target.value)}/>
+    <input type="submit" value="Sign Up or Login" />
     </form>
   )
 }
