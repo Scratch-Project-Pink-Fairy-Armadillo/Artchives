@@ -39,7 +39,7 @@ userController.getUser = (req,rest,next) => {
     });
   }
 
-  
+
   //**TODO: Create a method of create a user 
   userController.createUser = (req, res, next) => {
     // const requiredProps = ['username', 'password']; //done for us in frontend

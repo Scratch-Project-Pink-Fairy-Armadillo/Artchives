@@ -25,7 +25,7 @@ export default function SignUp() {
       e.preventDefault();
     // we make a post request to our server
     //   const { username, password } = req.body;
-      fetch(`http://localhost:3000/${signup}?signup:login`, {
+      fetch(`http://localhost:3000/${SignUp}?signup:login`, {
         method: 'POST'
       }, {username, password})
       .then(res => res.json())
