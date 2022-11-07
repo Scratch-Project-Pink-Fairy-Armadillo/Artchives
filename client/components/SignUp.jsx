@@ -25,21 +25,37 @@ export default function SignUp() {
       e.preventDefault();
     // we make a post request to our server
     //   const { username, password } = req.body;
-      fetch(`http://localhost:3000/${signup}?signup:login`, {
-        method: 'POST'
-      }, {username, password})
-      .then(res => res.json())
-      .then(user => {
-    // we need to check if there is already a user with the same name
-    // if so we need to say you need to login
-        if (user) return alert('User already exists, please login.');
+    fetch(`http://localhost:3000/signup`, {
+      method: 'POST',
+
+    }, {username, password})
+    .then(res => res.json())
+    .then(user => {
+      // we need to check if there is already a user with the same name
+      // if so we need to say you need to login
+      if (user && password) return alert('User already exists, please login.');
         console.log(`New user info is posting: username ${username} and password: ${password}`);
     // otherwise we create user
-      const User = {
-        username,
-        password,
-        favs: []
-      }
+    /**
+     * For the user object below, i dont think we need this as the user input
+     * (username and password ) will be sent to the back tp check if the user
+     * exists -Aimee
+     */
+      // const User = {
+      //   username,
+      //   password,
+      //   favs: []
+      // }
+
+      
+
+      /**
+       * creates cookie Id of user that is login to track the current session,
+       * to post a get request to get the current user to the back end
+       */
+      
+      const userCookie = cookies.user_id;
+
       setCookies("username", res.newUserData.username);
       setCookies("password", res.newUserData.password);
       
