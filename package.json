@@ -4,8 +4,6 @@
   "description": "",
 
   "main": "server/server.js",
-
-  "main": "index.js",
   "proxy": "http://localhost:3000/",
 
   "scripts": {

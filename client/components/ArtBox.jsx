@@ -32,23 +32,6 @@ const handleClick = (props) => {
 
 }
 
-
-
-const handleClick = () => {
-    fetch('http://localhost:3000/favorites/:id', {
-    method: "POST",
-    headers: {
-        'Content-type': 'application/json'
-    },
-    body: JSON.stringify(props)
-    })
-    .then((response) => response.json())
-    .then((response) => {
-    console.log(response);
-    })
-}
-
-
     return(
         <div className='artbox-div'>
 
