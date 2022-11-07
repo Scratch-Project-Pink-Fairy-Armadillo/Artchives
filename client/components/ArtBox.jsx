@@ -32,7 +32,6 @@ const handleClick = (props) => {
 
 }
 
-
     return(
         <div className='artbox-div'>
 
