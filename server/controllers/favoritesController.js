@@ -3,6 +3,18 @@
  * This file will contain all of the information regarding create, reading
  * updating, and delete favorites 
  */
+
+//**TODO: aquire favorites model 
+const favoritesModel = require('../models/favoritesModel');
+//**TODO: create favorites object 
+const favoritesController = {
+  //**TODO: Create a method to get all the favorites data when the user goes to
+  //route /favorites */
+  getFavorites(res, req, next) {
+    // cont [id, title, data_display, artwork_type_title, department_title, department_id,image_id ] = req.body;
+    const response = req.body;
+    res.locals.artId = req.body.artId;
+
 //**TODO: acquire favorites model 
 const favorites = require('../models/favoritesModel');
 
@@ -14,6 +26,7 @@ const favoritesController = {
   getFavorites(res, req, next) {
     // const [artId] = req.body;
     // res.locals.artId = req.body.artId;
+
     return next();
   },
 

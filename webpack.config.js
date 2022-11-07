@@ -8,7 +8,6 @@ module.exports = {
     output: {
         path: path.join(__dirname, '/dist'),
         //added by aimee
-        publicPath: '/',
         filename: 'bundle.js'
     },
     // devtool: 'eval-source-map',
@@ -25,7 +24,6 @@ module.exports = {
         // match the output path
         directory: path.resolve(__dirname, '/dist'),
         //added by aimee
-        publicPath: '/',
       },
       headers: { 'Access-Control-Allow-Origin': '*' },
     /**
