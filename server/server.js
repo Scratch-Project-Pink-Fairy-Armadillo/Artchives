@@ -82,6 +82,7 @@ app.post('/signup', (req,res) => {
 
 app.get('/user', (req,res) => {
   return res.sendStatus(200).json('users should be here');
+});
 
 app.get('/users', userController.getAllUsers, (req,res) => {
   return res.sendStatus(200).json(res.locals.user);
