@@ -15,3 +15,5 @@ https://api.artic.edu/api/v1/artworks?page=1&fields=id%2Ctitle%2Cartist_display%
 fetch call that displays the images by image id
 https://www.artic.edu/iiif/2/{image_id}/full/843,/0/default.jpg
 
+
+https://www.artic.edu/iiif/2/52098776-6e2e-9683-e258-7b1cec8660dd/full/843,/0/default.jpg

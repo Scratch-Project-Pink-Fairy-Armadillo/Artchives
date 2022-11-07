@@ -9,7 +9,7 @@ const Schema = mongoose.Schema;
 
 //bcrypt information for the username and password protection
 const SALT_WORK_FACTOR = 10;
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 
 //model schema 
 const userSchema = new Schema({
