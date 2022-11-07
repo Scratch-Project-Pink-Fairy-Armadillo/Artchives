@@ -37,10 +37,10 @@ module.exports = {
         secure: false,
       },
       //tookout by aimee
-      // '/assets/**': {
-      //   target: 'http://localhost:3000/',
-      //   secure: false,
-      // },
+      '/assets/**': {
+        target: 'http://localhost:3000/',
+        secure: false,
+      },
     },
   },
 

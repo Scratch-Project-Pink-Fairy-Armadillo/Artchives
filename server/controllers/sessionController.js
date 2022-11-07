@@ -2,25 +2,38 @@
 // const cookieController = require('../controllers/cookieController');
 // const User = require('../models/userModel');
 
-// const sessionController = {};
+// const sessionController = {
 
-// /**
-// * isLoggedIn - find the appropriate session for this request in the database, then
-// * verify whether or not the session is still valid.
-// */
-// sessionController.isLoggedIn = (req, res, next) => {
-//   // write code here
-// };
+// // * isLoggedIn - find the appropriate session for this request in the database, then
+// // * verify whether or not the session is still valid.
+// // */
+// isLoggedIn (req, res, next) {
+//   const [username, password] = req.body; 
+//   User.findOne({username: username, password: password}, async () => {
+//     try { 
+//       if (username && password){
+//         //set the session 
 
-// /**
-// * startSession - create and save a new Session into the database.
-// */
-// sessionController.startSession = (req, res, next) => {
-//   // User.findOne
+//       }
+//     }
+//     catch (error) {
+//       next({
+//         log: "Incorrect Session",
+//         status: 400,
+//       })
+//     }
+//   });
+
+
+// // * startSession - create and save a new Session into the database.
+// // */
+// startSession (req, res, next) {
+
 //   //write code here
 //   //Session.create with the property of cookieId: ssid
 //   // Session.create({cookieId: ssid})
 //   return next();
-// };
-
+//   };
+//   }
+// }
 // module.exports = sessionController;

@@ -16,6 +16,7 @@ fetch call that displays the images by image id
 https://www.artic.edu/iiif/2/{image_id}/full/843,/0/default.jpg
 
 
+
 to see your current branch do command git branch (the green one with the star is your branch)
 
 to get code updates: switch to dev branch using the command: git checkout dev
@@ -25,3 +26,5 @@ if want to start a new branch from these dev changes, use command: git checkout 
 always push your changes to your active branch (name/feature) using command: git push origin (name/feature)
 on github, you will want to pull request from base: dev and compare (name/feature) branch
 once pull request is approved by other partner, dev will be updated
+=======
+https://www.artic.edu/iiif/2/52098776-6e2e-9683-e258-7b1cec8660dd/full/843,/0/default.jpg

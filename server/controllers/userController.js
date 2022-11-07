@@ -12,8 +12,8 @@ const User = require("../models/userModel")
   //**TODO: create a method to get ALL users 
 const userController = {};
 
-userController.getUser = (req,rest,next) => {
-    User.find({}, (err, users) => {
+getUser = (req,rest,next) => {
+  User.find({}, (err, users) => {
       // if a database error occurs, call next with the error message passed in
       // for the express global error handler to catch
       if (err) return next('Error in userController.getAllUsers: ' + JSON.stringify(err));
@@ -42,23 +42,20 @@ userController.getUser = (req,rest,next) => {
   
   //**TODO: Create a method of create a user 
   userController.createUser = (req, res, next) => {
-    // const requiredProps = ['username', 'password']; //done for us in frontend
-    // if (!requiredProps.every((prop) => prop in req.body)) return next({error: 'first error handler'});
-    const {username, password} = req.body;
 
+    const {username, password} = req.body;
+    if (!username || !password) {
+      return ('Username or password do not exist in userController.createUser')
+    }
     //Hashing password with a salt factor of 10 
     const hashedPassword = bcrypt.hash(password, 10);
 
   //create a newUser using userModel mongos database
     User.create({username, password}, (err, newUserData) => {
       if (err) return next('Error in userController.createUser'  + JSON.stringify(err));
-        
-      // const newUserData = {
-      //   userController: res.locals.username, 
-      //   password: res.locals.password, 
-      //   favs: []
-      // }
-      //redirect to secret
+      
+      //Store this user as a verified user 
+      res.locals.verified = user; 
       res.locals.newUserData = newUserData;
 
       // console.log(newUser);
