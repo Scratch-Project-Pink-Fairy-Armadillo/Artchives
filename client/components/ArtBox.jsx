@@ -16,6 +16,24 @@ export default function ArtBox(props) {
     // }, []);
 
 
+
+const handleClick = (props) => {
+    fetch('http://localhost:3000/favorites', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'Application/JSON'
+        },
+        body: JSON.stringify(props)
+      })
+        .then(resp => resp.json())
+        .then((data) => {
+          console.log(data);
+        })
+
+}
+
+
+
 const handleClick = () => {
     fetch('http://localhost:3000/favorites/:id', {
     method: "POST",
@@ -29,6 +47,7 @@ const handleClick = () => {
     console.log(response);
     })
 }
+
 
 
     return(
