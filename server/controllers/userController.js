@@ -39,7 +39,7 @@ getUser = (req,rest,next) => {
     });
   }
 
-  
+
   //**TODO: Create a method of create a user 
   userController.createUser = (req, res, next) => {
 

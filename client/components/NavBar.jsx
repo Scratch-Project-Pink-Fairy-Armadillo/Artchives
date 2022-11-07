@@ -6,7 +6,7 @@ import SignUp from './SignUp';
 export default function NavBar() {
   return(
     <nav>
-      <button type='submit' id="fav" onClick={() => console.log('route to favorites page')}>Favorites</button>
+      <button type='submit' id="NavFav" onClick={() => console.log('route to favorites page')}>Favorites</button><b /> <img id="chive" src='https://cdn-icons-png.flaticon.com/512/5520/5520701.png' width={50}/>
       <SignUp />
     </nav>
   )

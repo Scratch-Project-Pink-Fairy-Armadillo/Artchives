@@ -1,4 +1,3 @@
-
   import React, { useEffect, useState } from 'react';
   import ArtBox from './ArtBox';
   
@@ -151,7 +150,7 @@ const api = `https://api.artic.edu/api/v1/artworks?page=${page}&fields=id,title,
           console.log(results)
         
         })
-    
+  
     }
 
     return (

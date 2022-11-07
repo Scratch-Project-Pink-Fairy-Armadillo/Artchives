@@ -1,23 +1,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Lekton&display=swap');
 
-body, button {
+body, button, input {
   font-family: 'Lekton', sans-serif;
 }
 h1 {
     color: green;
+    background-color: #f1f1f1;
 }
 
-nav {
+form {
   display: flex;
   align-items:flex-end;
   justify-content: flex-end;
 }
 
+
 input {
   margin: 3px;
+  padding: 2px;
 }
 
-/* .artbox-div {
-  height: 100px;
-  width: 100px;
-} */
+#NavFav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  margin-top: 5px;
+  margin-left: 10px;
+  justify-content: flex-start;
+  background-color: green;
+  color: #f1f1f1;
+}
+
+.artbox-div {
+  float: left;
+  height: 350px;
+  width: 23%;
+  padding: 10px;
+  background-color: #f1f1f1;
+}
+
+article {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+#chive {
+  float: left;
+  padding: 30px;
+}
+

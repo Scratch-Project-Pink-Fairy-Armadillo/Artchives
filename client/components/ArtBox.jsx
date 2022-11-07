@@ -49,7 +49,6 @@ const handleClick = () => {
 }
 
 
-
     return(
         <div className='artbox-div'>
 
