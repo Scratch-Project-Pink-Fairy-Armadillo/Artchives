@@ -4,8 +4,8 @@ import ArtContainer from './ArtContainer';
 
 
 export default function ArtBox(props) {
-    console.log(props)
-    console.log('here');
+    // console.log(props)
+    // console.log('here');
     const [isFavorite , setFavorite] = useState(false);
 
 
@@ -16,13 +16,31 @@ export default function ArtBox(props) {
     // }, []);
 
 
+const handleClick = (props) => {
+    fetch('http://localhost:3000/favorites', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'Application/JSON'
+        },
+        body: JSON.stringify(props)
+      })
+        .then(resp => resp.json())
+        .then((data) => {
+          console.log(data);
+        })
+
+}
+
 
     return(
-        <div id={props.artID} className='artbox-div'>
+        <div className='artbox-div'>
 
-            <img id={props.artID + '-image'} src={props.imgUrl} alt="artwork" />
-            <p>{props.title}</p>
-            <button id={props.artID + '-button'} className='favorite-button' onClick={() => console.log('favorited!')}>Favorite</button>
+            <img src={props.imgUrl} alt="artwork" />
+            {/* <p>{props.title}</p> */}
+            <button className='favorite-button' onClick={() => {
+                console.log('favorited!');
+                handleClick();
+            }}>Favorite</button>
         </div>
     )
 }

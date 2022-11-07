@@ -13,22 +13,22 @@ const cookieController = require('./controllers/cookieController');
 const sessionController = require('./controllers/sessionController');
 
 //this is where the backend server will run 
-const PORT = 3000; 
 const app = express();
+const PORT = 3000; 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // cedar added this for static assets 
-app.use('/assets', express.static(path.join(__dirname, '../assets')))
+app.use(express.static(path.join(__dirname, '../client')))
 
 //URI? 
-const URI = 'mongodb+srv://PFA:pfa@cluster0.eptbr6d.mongodb.net/?retryWrites=true&w=majority';
+// const URI = 'mongodb+srv://PFA:pfa@cluster0.eptbr6d.mongodb.net/?retryWrites=true&w=majority';
 // const mongoURI = process.env.NODE_ENV === 'test' ? 'mongodb://localhost/scratchproject' : 'mongodb://localhost/scratchproject';
 // mongoose.connect(mongoURI);
 // // cedar added the below
-mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true });
-mongoose.connection.once('open', () => {
-  console.log('Connected to Database');
-});
+// mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true });
+// mongoose.connection.once('open', () => {
+//   console.log('Connected to Database');
+// });
 
 //Set up for routing pages 
 // const archiveRouter = express.Router();  
@@ -44,8 +44,20 @@ mongoose.connection.once('open', () => {
 
 //**TODO: GET -Reponse at root 
 app.get('/', (req, res) => {
+  res.send("hello World!!")
+  // return res.sendStatus(200).json('This is from the GET response for the root path')
+});
 
-  return res.sendStatus(200).json('This is from the GET response for the root path')
+// app.get('/favorites', (req,res) => {
+//   return res.sendStatus(200).json(res.locals.artId);
+// });
+
+app.post('/favorites', favoritesController.getFavorites, (req,res) => {
+  return res.sendStatus(200).send('this is the favorites');
+});
+
+app.get('/favorites', favoritesController.getFavorites, (req,res) => {
+  return console.log('this is the favorites');
 });
 
 app.get('/signup', (req,res) => {
@@ -53,8 +65,8 @@ app.get('/signup', (req,res) => {
 });
 //**TODO: GET -users 
   //! Frontend must implement a GET request to the backend 
-app.get('/user', userController.getAllUsers, (req,res) => {
-  return res.sendStatus(200).json(res.locals.user);
+app.get('/user', (req,res) => {
+  return res.sendStatus(200).json('users should be here');
 });
 //**TODO: GET -individual users? 
   //! Frontend must implement a GET request to the backend 
@@ -63,8 +75,8 @@ app.get('/user', userController.getAllUsers, (req,res) => {
   //! Frontend must implement a POST request to the backend
   
   //**TODO: POST -user signs up, store info into DB 
-  app.post('/signup',userController.createUser, (req,res) => {
-    return res.sendStatus(200).json(res.locals.newUserData);
+  app.post('/signup', (req,res) => {
+    return res.sendStatus(200).json('were going somewhere');
   })
   
   
@@ -92,8 +104,7 @@ app.get('/user', userController.getAllUsers, (req,res) => {
     console.log(`listen on port ${PORT}`)
   });
   
-  //http://localhost:3000/
-  //module.exports = app;
+  module.exports = app;
   /*
   ****** Stretch feature 
   **TODO: PUT -user can update info 
