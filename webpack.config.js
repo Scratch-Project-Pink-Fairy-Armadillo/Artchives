@@ -8,7 +8,8 @@ module.exports = {
     output: {
         path: path.join(__dirname, '/dist'),
         //added by aimee
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        publicPath: '/',
     },
     // devtool: 'eval-source-map',
     mode: 'development',
@@ -38,10 +39,10 @@ module.exports = {
         secure: false,
       },
       //tookout by aimee
-      '/assets/**': {
-        target: 'http://localhost:3000/',
-        secure: false,
-      },
+      // '/assets/**': {
+      //   target: 'http://localhost:3000/',
+      //   secure: false,
+      // },
     },
   },
 

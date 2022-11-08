@@ -10,7 +10,7 @@ export default function About() {
     <h1 id="heading"> The Artchives</h1>
       <article>
         Explore thousands of different artworks featured in the Art Institute of Chicago. 
-        Artchives allows you access to not only view these pieces, but also favorite them and
+        The Artchives allows you access to not only view these pieces, but also favorite them and
         add them to your own collection in order to better prepare you for your visit.
       </article>
     </div>

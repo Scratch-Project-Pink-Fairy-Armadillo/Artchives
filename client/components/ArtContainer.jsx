@@ -1,14 +1,25 @@
   import React, { useEffect, useState } from 'react';
   import ArtBox from './ArtBox';
+  import NavBar from './NavBar';
+  import About from './About';
   
-  export default function ArtContainer() {
+  export default function ArtContainer(props) {
       //image id which we have to get from the fetch call https://api.artic.edu/api/v1/artworks?page=1&fields=id%2Ctitle%2Cartist_display%2Cdate_display%2Cartist_display%2Cdepartment_title%2Cdepartment_id%2Cartwork_type_title%2Cmain_reference_number%2Cimage_id%2Cconfig%2C
       //this website gives you objects with the image id in those objects
 
       const [results, setResults] = useState([]);
-      const [page, setPage] = useState(0);
+      const [page, setPage] = useState(1);
+      const [favs, setFavs] = useState(['h'])
 
+    const handleClick = () => {
+      setResults([]);
+      setPage(page + 1);
+    }
 
+    const handleClick2 = () => {
+      setResults([]);
+      if (page > 1) setPage(page - 1);
+    }
 
 const api = `https://api.artic.edu/api/v1/artworks?page=${page}&fields=id,title,artist_display,date_display,artist_display,department_title,department_id,artwork_type_title,main_reference_number,image_id,config`;
 
@@ -23,9 +34,10 @@ const api = `https://api.artic.edu/api/v1/artworks?page=${page}&fields=id,title,
               createArtBox();
           // }
       // }
-        }, []) //page needs to go in parameter
+        }, [page]) //page needs to go in parameter
 
       function createArtBox() {
+        // const api = `https://api.artic.edu/api/v1/artworks?page=${page}&fields=id,title,artist_display,date_display,artist_display,department_title,department_id,artwork_type_title,main_reference_number,image_id,config`;
         // const api = `https://api.artic.edu/api/v1/artworks?page=1&fields=id,title,artist_display,date_display,artist_display,department_title,department_id,artwork_type_title,main_reference_number,image_id,config`;
   
         //promise all fetch with 2 links
@@ -38,37 +50,58 @@ const api = `https://api.artic.edu/api/v1/artworks?page=${page}&fields=id,title,
         .then((data) => {
           // console.log(data);
           data.data.forEach(el => {
-            console.log(el['id'])
             const artId = el['id'];
             const title = el['title'];
             const image_id = el['image_id'];
+            const artist_display = el['artist_display'];
+            const artwork_type_title = el['artwork_type_title'];
+            const date_display = el['date_display'];
+            const department_title = el['department_title'];
+            const department_id = el['department_id'];
             // console.log(el['image_id'])
             // setImageId(el['image_id']); //doesn't work for some reason
-            // console.log(imageId)
+            // console.log(image_id)
             fetch('https://www.artic.edu/iiif/2/' + `${el['image_id']}` + '/full/843,/0/default.jpg')
             // .then((data) => data.json())
             .then((data) => {
-              console.log(data.url);
+              // console.log(data.url);
               // setResults([...data.url])
               // setImgUrl(data.url);
               // const imgUrl = data.url;
 
-              results.push(<ArtBox artId={artId} title={title} imgUrl={data.url} key={artId}/>)
+              results.push(<ArtBox 
+                artId={artId} 
+                title={title} 
+                imgUrl={data.url}
+                image_id={image_id}
+                key={artId}
+                artist_display={artist_display}
+                artwork_type_title={artwork_type_title}
+                date_display={date_display}
+                department_title={department_title}
+                department_id={department_id}
+                favs = {favs}
+              />)
               setResults([...results])
             })
           })
-  
-
-          // <ArtBox artId={artId} title={title} imgUrl={imgUrl} key={artId}/>
-          console.log(results)
-        
         })
   
     }
 
     return (
       <div>
+      <NavBar /> 
+        <About /> 
         {results}
+        <div className='prevnextbuttons'>
+        <button className='previous-button' onClick={() => {
+                handleClick2();
+            }}>Previous</button>
+        <button className='next-button' onClick={() => {
+                handleClick();
+            }}>Next</button>
+            </div>
       </div>
 
     )
