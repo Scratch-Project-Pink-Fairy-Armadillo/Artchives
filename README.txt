@@ -16,4 +16,4 @@ CO-Authors:
 Debbie Zavaleta
 Cedar Cooper
 Joe Hynan 
-Aimee (Amy) Nguyen 06037255+DoctorCodeine@users.noreply.github.com  
+Aimee (Amy) Nguyen <06037255+DoctorCodeine@users.noreply.github.com> 
