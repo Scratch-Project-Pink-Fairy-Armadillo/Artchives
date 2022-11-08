@@ -35,7 +35,7 @@ const handleClick = (props) => {
     return(
         <div className='artbox-div'>
 
-            <img src={props.imgUrl} alt="artwork" />
+            <img src={props.imgUrl} width="400" height="500"alt="artwork" />
             {/* <p>{props.title}</p> */}
             <button className='favorite-button' onClick={() => {
                 console.log('favorited!');
