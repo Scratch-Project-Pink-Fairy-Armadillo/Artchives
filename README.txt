@@ -9,3 +9,11 @@ git pull origin dev (if changes in dev)
 git checkout -b (name/feature) --to do new branch from dev
 
 git push origin (name/feature) --to push to github branch 
+
+
+CO-Authors: 
+
+Debbie Zavaleta
+Cedar Cooper
+Joe Hynan 
+Aimee (Amy) Nguyen 06037255+DoctorCodeine@users.noreply.github.com  
