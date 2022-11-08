@@ -3,9 +3,37 @@
 body, button, input {
   font-family: 'Lekton', sans-serif;
 }
+
+body {
+  background: url(./images/chicagoart.jpeg) no-repeat center center fixed;
+  background-size: cover;
+  margin: 5% 5% 5% 23%;
+}
+
+.app {
+  background-color: rgba(230, 218, 200, 0.85);
+  width: 1000px;
+  align-items: center;
+}
+
 h1 {
-    color: green;
-    background-color: #f1f1f1;
+    color: rgb(123, 153, 64);
+    font-size: 45px;
+    /* font-weight: 900; */
+}
+
+button {
+  background-color: rgb(217, 238, 174);
+  border: burlywood 1px solid;
+  border-radius: 3px;
+}
+
+button:hover {
+  border: rgb(210, 181, 142) 1.5px solid;
+}
+
+button:active {
+  background-color: rgb(180, 212, 117);
 }
 
 form {
@@ -18,6 +46,17 @@ form {
 input {
   margin: 3px;
   padding: 2px;
+  background-color: rgb(217, 238, 174);
+  border: burlywood 1px solid;
+  border-radius: 3px;
+}
+
+.submit-button:hover{
+  border: rgb(137, 109, 74) 1px solid;
+}
+
+.submit-button:active {
+  background-color: rgb(193, 155, 91);
 }
 
 #NavFav {
@@ -26,19 +65,26 @@ input {
   justify-content: center;
   padding: 5px;
   margin-top: 5px;
-  margin-left: 10px;
-  justify-content: flex-start;
-  background-color: green;
-  color: #f1f1f1;
+  height: 30px;
+  width: 100px;
+  font-size: 18px;
+  color: rgb(140, 68, 102);
 }
 
 .artbox-div {
   float: left;
-  height: 350px;
+  height: 380px;
   width: 23%;
-  padding: 10px;
-  background-color: #f1f1f1;
+  padding: 20px 10px 20px 10px;
+  background-color: rgba(230, 218, 200, 0.85);
+  text-align: center;
 }
+
+.favorite-button {
+  height: 20px;
+  width: 100px;
+}
+
 
 article {
   text-align: center;
@@ -50,3 +96,10 @@ article {
   padding: 30px;
 }
 
+.prevnextbuttons{
+  position: absolute;
+}
+
+article {
+  padding: 20px 10px;
+}

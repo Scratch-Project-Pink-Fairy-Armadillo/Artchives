@@ -2,10 +2,8 @@
   "name": "scratch-project",
   "version": "1.0.0",
   "description": "",
-
   "main": "server/server.js",
   "proxy": "http://localhost:3000/",
-
   "scripts": {
     "dev": "concurrently \"cross-env NODE_ENV=development webpack-dev-server --open --hot --progress --color \" \"nodemon ./server/server.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -22,13 +20,14 @@
   },
   "homepage": "https://github.com/Scratch-Project-Pink-Fairy-Armadillo/Scratch-Project#readme",
   "dependencies": {
+    "body-parser": "^1.20.1",
     "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
     "nodemon": "^2.0.20",
     "react": "^18.2.0",
     "react-cookies": "^0.1.1",
     "react-dom": "^18.2.0",
     "react-router": "^6.4.3",
-    "react-router-dom": "^6.4.3",
     "react-scripts": "^5.0.1"
   },
   "devDependencies": {
@@ -48,7 +47,7 @@
     "html-webpack-plugin": "^5.5.0",
     "mongoose": "^6.7.1",
     "react-cookie": "^4.1.1",
-    "style-loader": "^3.3.1",
+    "react-router-dom": "^6.4.3",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.11.1",
